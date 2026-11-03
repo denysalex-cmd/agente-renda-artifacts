@@ -1,0 +1,32 @@
+openapi: 3.0.3
+info:
+  title: AgenteRenda Preflight API
+  version: 1.0.0
+  license:
+    name: MIT
+    url: https://opensource.org/license/mit
+servers:
+  - url: https://api.agenterenda.test
+security: []
+paths:
+  /health:
+    get:
+      summary: Check service health
+      operationId: getHealth
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [ok]
+                properties:
+                  ok:
+                    type: boolean
+              examples:
+                healthy:
+                  value:
+                    ok: true
+        '400':
+          description: Bad request
